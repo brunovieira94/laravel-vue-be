@@ -38,7 +38,7 @@ class AuthController extends Controller
     //         'status' => 'success',
     //         'message' => 'User created successfully',
     //         'user' => $user,
-    //         'authorization' => [
+    //         'authorisation' => [
     //             'token' => $token,
     //             'type' => 'bearer',
     //         ]
@@ -59,7 +59,7 @@ class AuthController extends Controller
     //     return response()->json([
     //         'status' => 'success',
     //         'user' => Auth::user(),
-    //         'authorization' => [
+    //         'authorisation' => [
     //             'token' => Auth::refresh(),
     //             'type' => 'bearer',
     //         ]

@@ -14,9 +14,10 @@ class UserService
         $this->user = $user;
     }
 
-    public function getAllUser()
+    public function getAllUser($request)
     {
-        return $this->user->paginate(20);
+        $user = Utils::search($this->user, $request);
+        return  Utils::pagination($user, $request);
     }
 
     public function getUser($id)

@@ -16,9 +16,9 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->taskService->getAllTaskByUser();
+        return $this->taskService->getAllTaskByUser($request->all());
     }
 
     public function show($id)

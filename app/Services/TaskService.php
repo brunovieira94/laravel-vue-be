@@ -16,9 +16,10 @@ class TaskService
         $this->task = $task;
     }
 
-    public function getAllTaskByUser()
+    public function getAllTaskByUser($request)
     {
-        return $this->task->where('user_id', Auth::user()->id)->paginate(20);
+        $task = Utils::search($this->task, $request);
+        return  Utils::pagination($task->where('user_id', Auth::user()->id), $request);
     }
 
     public function getTask($id)

@@ -22,7 +22,7 @@ class AuthService
         return [
             'status' => 'success',
             'user' => $user,
-            'authorization' => [
+            'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
             ]
