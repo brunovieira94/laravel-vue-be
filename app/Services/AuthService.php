@@ -20,12 +20,16 @@ class AuthService
 
         $user = Auth::user();
         return [
-            'status' => 'success',
             'user' => $user,
-            'authorisation' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
+            'token' => $token,
+        ];
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return [
+            'success' => true,
         ];
     }
 }

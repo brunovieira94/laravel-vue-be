@@ -20,6 +20,11 @@ class AuthController extends Controller
         return $this->authService->login($request);
     }
 
+    public function logout()
+    {
+        return $this->authService->logout();
+    }
+
     // public function register(Request $request){
     //     $request->validate([
     //         'name' => 'required|string|max:255',

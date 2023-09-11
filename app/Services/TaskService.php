@@ -32,6 +32,7 @@ class TaskService
         $task = new Task;
         $user = User::findOrFail(Auth::user()->id);
         $taskInfo['user_id'] = $user->id;
+        $taskInfo['status'] = 0;
         $task = $task->create($taskInfo);
         $user->notify(new TaskChangeEmailNotification($user, $task, 'criada'));
         return $this->task->with(['user'])->findOrFail($task->id);

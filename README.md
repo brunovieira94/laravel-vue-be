@@ -25,7 +25,7 @@ You need to have PHP version **8.0** or above.
 7. Run `php artisan jwt:secret`
 8. Run `php artisan serve` to start the project at http://localhost:8000
 9. Create admin user trough CLI:
-Run `php artisan tinker` and `\App\Models\User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password')]);`
+Run `php artisan tinker` and `\App\Models\User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password'), 'admin' => 1]);`
 10. configure .env to send mail notifications (Outlook): 
 MAIL_MAILER=smtp
 MAIL_HOST=smtp-mail.outlook.com

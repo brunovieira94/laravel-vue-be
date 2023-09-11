@@ -16,15 +16,19 @@ Route::middleware(['auth:api'])->group(function () {
         Route::delete('/{id}', [TaskController::class, 'destroy']);
     });
 
-    Route::prefix('users')->group(function () {
+    Route::prefix('users')->middleware(['admin'])->group(function () {
         Route::get('/', [UserController::class, 'index']);
         Route::get('/{id}', [UserController::class, 'show']);
         Route::post('/', [UserController::class, 'store']);
         Route::put('/{id}', [UserController::class, 'update']);
         Route::delete('/{id}', [UserController::class, 'destroy']);
     });
+
+    Route::prefix('/logout')->group(function () {
+        Route::post('/', [AuthController::class, 'logout']);
+    });
 });
 
-Route::prefix('/auth')->group(function () {
+Route::prefix('/login')->group(function () {
     Route::post('/', [AuthController::class, 'login']);
 });

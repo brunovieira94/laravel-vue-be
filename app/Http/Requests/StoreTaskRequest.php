@@ -16,7 +16,7 @@ class StoreTaskRequest extends FormRequest
         return [
             'title' => 'max:150|required',
             'description' => 'max:150|required',
-            'status' => 'required|integer|min:0|max:2',
+            'status' => 'integer|min:0|max:2',
             'date' => 'date'
         ];
     }

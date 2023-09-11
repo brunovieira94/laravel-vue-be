@@ -29,6 +29,7 @@ class UserService
     {
         $user = new User;
         $userInfo['password'] = Hash::make($userInfo['password']);
+        $userInfo['admin'] = 0;
         $user = $user->create($userInfo);
         return $this->user->findOrFail($user->id);
     }
@@ -39,6 +40,7 @@ class UserService
         if (array_key_exists('password', $userInfo)) {
             $userInfo['password'] = Hash::make($userInfo['password']);
         }
+        $userInfo['admin'] = 0;
         $user->fill($userInfo)->save();
         $user = $this->user->findOrFail($id);
         return $user;
