@@ -24,9 +24,10 @@ You need to have PHP version **8.0** or above.
 6. Run `php artisan migrate`
 7. Run `php artisan jwt:secret`
 8. Run `php artisan serve` to start the project at http://localhost:8000
-9. Create admin user trough CLI:
+9. Run `php artisan queue:listen` to listen to the queued notifications
+10. Create admin user trough CLI:
 Run `php artisan tinker` and `\App\Models\User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password'), 'admin' => 1]);`
-10. configure .env to send mail notifications (Outlook): 
+11. configure .env to send mail notifications (Outlook): 
 MAIL_MAILER=smtp
 MAIL_HOST=smtp-mail.outlook.com
 MAIL_PORT=587
@@ -35,3 +36,4 @@ MAIL_PASSWORD=********
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="mail@live.com"
 MAIL_FROM_NAME="${APP_NAME}"
+QUEUE_CONNECTION=database
